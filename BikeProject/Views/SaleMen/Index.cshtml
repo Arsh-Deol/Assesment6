@@ -1,0 +1,47 @@
+﻿@model IEnumerable<BikeProject.Models.SaleMan>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Staff Detail</h1>
+
+<p>
+    <a asp-action="Create">Add Sale Person</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.SaleManName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BikeAmount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SaleDate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.SaleManName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BikeAmount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SaleDate)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.SaleManId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.SaleManId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.SaleManId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
